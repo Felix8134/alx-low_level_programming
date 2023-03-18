@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <time.h>
 
 /**
  * main -main function
@@ -10,7 +9,7 @@ int main(void)
 {
 	char i;
 
-	for (i = 'a' ; i = 'z' ; i++)
+	for (i = 'a' ; i <= 'z' ; i++)
 		if (i != 'e' && i != 'q')
 			putchar(i);
 	putchar('\n');
