@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_most_numbers (0 through 9)
+ * print_most_numbers - checks for a digit (0 through 9)
  * @c: int do not print 2 and 4
  * Return: Always 0 (Success)
  */
@@ -10,7 +10,7 @@ void print_most_numbers(void)
 {
 	int c;
 
-	for (c = 0; c < 10; c++)
+	for (c = 0; c <= 9; c++)
 	{
 		if  (c != 2 && c != 4)
 		{
