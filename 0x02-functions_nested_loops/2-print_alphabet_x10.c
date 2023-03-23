@@ -13,8 +13,8 @@ void print_alphabet_10times(void)
 
 	while (i < 10)
 	{
-		c = 'a'
-		while (ch <= 'z')
+		c = 'a';
+		while (c <= 'z')
 		{
 			_putchar(c);
 			c++;
