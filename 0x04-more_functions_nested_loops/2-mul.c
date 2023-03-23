@@ -1,14 +1,17 @@
 #include "main.h"
 
 /**
- * mul -for a digit (0 through 9)
- * @c: first int
- * @c: second int
+ * mul -checks for digit (0 through 9)
+ * @c: a -variable
+ * @c: b -variable
  * Return: Always 0 (Success)
  */
 
 int mul(int a, int b)
 
 {
-	return (a * b);
+	int mul;
+
+	mul = a * b;
+	return (mul);
 }
