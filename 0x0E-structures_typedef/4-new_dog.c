@@ -3,15 +3,15 @@
 
 /**
  * _strlen - fnct
- * @c: ..
+ * @s: ..
  * Return: null
  */
 
-int _strlen(char *c)
+int _strlen(char *s)
 {
 	int x = 0;
 
-	while (*c)
+	while (s[x] != '\0')
 		x++;
 	return (x);
 }
@@ -24,11 +24,16 @@ int _strlen(char *c)
 
 char *_strcopy(char *dest, char *src)
 {
-	int y = 0;
+	int a = 0;
+	int b;
 
-	for (y = 0; src[y]; y++)
-		dest[y] = src[y];
-	dest[y] = '\0';
+	while (src[a] != '\0')
+		a++;
+	for (b = 0; b < a; b++)
+	{
+		dest[b] = src[b];
+	}
+	dest[b] = '\0';
 	return (dest);
 }
 
@@ -43,28 +48,31 @@ char *_strcopy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *z;
+	int x;
+	int y;
 
-	if (name == NULL || age < 0 || owner == NULL)
-		return (NULL);
+	x = _strlen(name);
+	y = _strlen(owner);
+
 	z = malloc(sizeof(dog_t));
-	if (z->name == NULL)
+	if (z == NULL)
 		return (NULL);
-	z->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	z->name = malloc(sizeof(char) * (x + 1));
 	if (z->name == NULL)
 	{
 		free(z);
 		return (NULL);
 	}
-	z->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	z->owner = malloc(sizeof(char) * (y + 1));
 	if (z->owner == NULL)
 	{
-		free(z->name);
 		free(z);
+		free(z->name);
 		return (NULL);
 	}
-	z->name = _strcopy(z->name, name);
-	z->age = age;
-	z->owner = _strcopy(z->owner, owner);
-	return (z);
 
+	_strcopy(z->name, name);
+	_strcopy(z->owner, owner);
+	z->age = age;
+	return (z);
 }
