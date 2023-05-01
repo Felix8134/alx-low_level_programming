@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 size_t looped_listint_len(const listint_t *head);
-size_t print_listint_safe(const list_t *head);
+size_t print_listint_safe(const listint_t *head);
 
 /**
  * looped_listint_len - ...
@@ -10,7 +10,7 @@ size_t print_listint_safe(const list_t *head);
  * Return: ...
  */
 
-size_t looped_listint_len(const listint_t *head);
+size_t looped_listint_len(const listint_t *head)
 {
 	const listint_t *tortoise, *hare;
 	size_t x = 1;
@@ -39,8 +39,8 @@ size_t looped_listint_len(const listint_t *head);
 			tortoise = tortoise->next;
 			hare = (hare->next)->next;
 		}
-		return (0);
 	}
+	return (0);
 }
 
 /**
@@ -57,6 +57,14 @@ size_t print_listint_safe(const listint_t *head)
 	if (x == 0)
 	{
 		for (; head != NULL; x++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+	}
+	else
+	{
+		for (y = 0; y < x; y++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
