@@ -9,51 +9,57 @@ size_t print_listint_safe(const listint_t *head);
  * @head: ...
  * Return: ...
  */
-
 size_t looped_listint_len(const listint_t *head)
 {
-	const listint_t *tortoise, *hare;
+	const listint_t *opuk, *apuoyo;
 	size_t x = 1;
 
 	if (head == NULL || head->next == NULL)
 		return (0);
-	tortoise = head->next;
-	hare = (head->next)->next;
-	while (hare)
+
+	opuk = head->next;
+	apuoyo = (head->next)->next;
+
+	while (apuoyo)
 	{
-		if (tortoise == hare)
+		if (opuk == apuoyo)
 		{
-			tortoise = head;
-			while (tortoise != hare)
+			opuk = head;
+			while (opuk != apuoyo)
 			{
 				x++;
-				tortoise = tortoise->next;
-				hare = hare->next;
+				opuk = opuk->next;
+				apuoyo = apuoyo->next;
 			}
-			tortoise = tortoise->next;
-			while (tortoise != hare)
+
+			opuk = opuk->next;
+			while (opuk != apuoyo)
 			{
 				x++;
-				tortoise = tortoise->next;
+				opuk = opuk->next;
 			}
-			tortoise = tortoise->next;
-			hare = (hare->next)->next;
+
+			return (x);
 		}
+
+		opuk = opuk->next;
+		apuoyo = (apuoyo->next)->next;
 	}
+
 	return (0);
 }
 
 /**
  * print_listint_safe - ...
- * @head: ..
- * Return: ..
+ * @head: ...
+ * Return: ...
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t x, y = 0;
 
 	x = looped_listint_len(head);
+
 	if (x == 0)
 	{
 		for (; head != NULL; x++)
@@ -62,6 +68,7 @@ size_t print_listint_safe(const listint_t *head)
 			head = head->next;
 		}
 	}
+
 	else
 	{
 		for (y = 0; y < x; y++)
@@ -69,7 +76,10 @@ size_t print_listint_safe(const listint_t *head)
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
+
 		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
+
 	return (x);
 }
+
