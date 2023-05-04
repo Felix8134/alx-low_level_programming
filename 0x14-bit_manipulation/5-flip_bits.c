@@ -9,12 +9,16 @@
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned long int shwili = n ^ m, x = 0;
+	int x, y = 0;
+	unsigned long int sai;
+	unsigned long int baadae = n ^ m;
 
-	while (shwili > 0)
+	for (x = 63; x >= 0; x--)
 	{
-		x += (shwili & 1);
+		sai = baadae >> x;
+		if (sai & 1)
+			y++;
 	}
-	return (x);
+	return (y);
 
 }
